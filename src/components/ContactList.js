@@ -5,15 +5,7 @@ class ContactList extends Component {
     
     render() {
         return (
-        <table className="table table-striped table-bordered">
-            <thead>
-                <tr>
-                    <th>Name</th>
-                    <th>Number</th>
-                    <th>Actions</th>
-                </tr>
-            </thead>
-            <tbody>
+        <div className="list-group">
             {this.props.contacts.map((contact, index) =>
                 <ContactItem {...contact}
                     key={index}
@@ -22,8 +14,8 @@ class ContactList extends Component {
                     onEditClick={this.props.setEditContactIdx}
                 />
             )}
-            </tbody>
-        </table>
+        </div>
+        
         )
     }
     

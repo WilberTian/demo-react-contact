@@ -18,15 +18,21 @@ export default class App extends Component {
     render() {
         return (
         <div className="row">
-            <div id="main-content" className="col-md-6">
-                <button className="btn btn-default" onClick={this._openAddModal}><span className="glyphicon glyphicon-plus"></span></button>
-                <ContactList contacts={this.props.contacts} 
-                    deleteItemAction={this.props.actions.deleteItem}
-                    setEditContactIdx={this._setEditContactIdx.bind(this)}
-                />
-                <AddContactModal addItemAction={this.props.actions.addItem}/>
-                <EditContactModal  editContactIdx={this.state.editContactIdx} editItemAction={this.props.actions.editItem}/>
+            <div id="main-content" className="panel panel-primary" >
+                <div className="panel-heading">
+                    <span className="panel-title">Contact</span>
+                    <button className="btn btn-default btn-sm pull-right" onClick={this._openAddModal}><span className="glyphicon glyphicon-plus"></span></button>
+                </div>
+                <div className="panel-body">
+                    <ContactList contacts={this.props.contacts} 
+                        deleteItemAction={this.props.actions.deleteItem}
+                        setEditContactIdx={this._setEditContactIdx.bind(this)}
+                    />
+                </div>
             </div>
+            <AddContactModal addItemAction={this.props.actions.addItem}/>
+            <EditContactModal  editContactIdx={this.state.editContactIdx} editItemAction={this.props.actions.editItem}/>
+            
         </div>
         );
     }

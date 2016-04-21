@@ -1,16 +1,23 @@
 import React, { Component, PropTypes } from 'react'
+import contactIcon from "../images/contact.png";
 
 class ContactItem extends Component {
     render() {
+ 
         return (
-        <tr>
-            <td>{this.props.name}</td>
-            <td>{this.props.number}</td>
-            <td>
-            <button className="btn btn-default" onClick={ e => this._openEditModal(e)}><span className="glyphicon glyphicon-edit"></span></button>
-            <button className="btn btn-default" onClick={ e => this._itemDeleteHandler(e) }><span className="glyphicon glyphicon-remove"></span></button>
-            </td>
-        </tr>
+        <a href="#" className="list-group-item">
+            <div className="pull-right">
+                <span className="glyphicon glyphicon-pencil" onClick={ e => this._openEditModal(e)}></span>
+                 &nbsp;&nbsp;
+                <span className="glyphicon glyphicon-remove" onClick={ e => this._itemDeleteHandler(e) }></span>
+            </div>
+            <img id="contact-icon" className="pull-left" src={ contactIcon } alt="contact"/>
+            <address>
+                <strong>{this.props.name}</strong><br/>
+                <abbr title="Phone">Phone:</abbr> {this.props.number}<br/>
+                <abbr title="Email">Email:</abbr> first.last@example.com
+            </address>
+            </a>
         );
     }
   

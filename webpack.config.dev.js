@@ -44,6 +44,10 @@ module.exports = {
       test: /\.css?$/,
       loaders: ['style', 'css'],
       include: __dirname
+    }, {
+      test: /\.png$/,
+      loader: 'url-loader?limit=8192',
+      include: path.join(__dirname, 'src/images')
     }]
   }
 };
