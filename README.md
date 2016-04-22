@@ -32,7 +32,7 @@ Redux Devtools are enabled by default in development:
 - `CTRL+H` Toggle DevTools Dock
 - `CTRL+Q` Move DevTools Dock Position
 
-![issue](https://cloud.githubusercontent.com/assets/5880320/14708586/7038b4f0-07fe-11e6-8c54-35c1839ce2ad.PNG)
+![issue](https://cloud.githubusercontent.com/assets/5880320/14728909/aa80f3bc-086b-11e6-8276-339e9805ca93.PNG)
 
 
 ### Building and Running Production Server
