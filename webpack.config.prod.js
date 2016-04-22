@@ -3,9 +3,17 @@ const webpack = require('webpack');
 
 module.exports = {
   devtool: 'source-map',
-  entry: [
-    './src/index'
-  ],
+  entry: {
+    app: "./src",
+    vendor: [
+      'react',
+      'react-dom',
+      'react-redux',
+      'redux',
+      'redux-logger',
+      'redux-thunk'
+    ]
+  },
   output: {
     path: path.join(__dirname, 'dist'),
     filename: 'bundle.js',
@@ -18,6 +26,7 @@ module.exports = {
      * more predictable.
      */
     new webpack.optimize.OccurenceOrderPlugin(),
+    new webpack.optimize.CommonsChunkPlugin(/* chunkName= */"vendor", /* filename= */"vendor.bundle.js"),
     /**
      * See description in 'webpack.config.dev' for more info.
      */

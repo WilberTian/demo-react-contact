@@ -3,11 +3,21 @@ var webpack = require('webpack');
 
 module.exports = {
   devtool: 'eval',
-  entry: [
-    'eventsource-polyfill', // necessary for hot reloading with IE
-    'webpack-hot-middleware/client',
-    './src/index'
-  ],
+  entry: {
+    app: './src',
+    vendor: [
+      'react',
+      'react-dom',
+      'react-redux',
+      'redux',
+      'redux-logger',
+      'redux-thunk',
+      
+      'eventsource-polyfill', // necessary for hot reloading with IE
+      'webpack-hot-middleware/client'
+    ]
+  }
+  ,
   output: {
     path: path.join(__dirname, 'dist'),
     filename: 'bundle.js',
@@ -18,6 +28,7 @@ module.exports = {
      * This is where the magic happens! You need this to enable Hot Module Replacement!
      */
     new webpack.HotModuleReplacementPlugin(),
+    new webpack.optimize.CommonsChunkPlugin(/* chunkName= */"vendor", /* filename= */"vendor.bundle.js"),
     /**
      * NoErrorsPlugin prevents your webpack CLI from exiting with an error code if
      * there are errors during compiling - essentially, assets that include errors
