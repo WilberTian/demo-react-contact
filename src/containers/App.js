@@ -6,7 +6,7 @@ import AddContactModal from '../components/AddContactModal';
 import EditContactModal from '../components/EditContactModal';
 import * as actions from '../redux/actions';
 
-export default class App extends Component {
+export class App extends Component {
     constructor(props, context) {
         super(props, context);
         
